@@ -1,5 +1,3 @@
-# скрипт вызывает ошибку
-# Error response from daemon: No such container: mysql-db
 
 
 #!/bin/bash
@@ -90,6 +88,15 @@ echo "✅ MySQL готов."
 #   -e DB_NAME=$MYSQL_DATABASE \
 #   nextjs-app
 
-echo "✅ Next.js приложение запущено на http://localhost:$NEXT_PORT"
+# echo "✅ Next.js приложение запущено на http://localhost:$NEXT_PORT"
 echo "📝 Подключение к MySQL через: $MYSQL_USER:$MYSQL_PASSWORD@localhost:$MYSQL_PORT/$MYSQL_DATABASE"
-echo "docker exec -it mysql-db mysql -uroot -prootpass123"
+echo "docker exec -it mysql-db mysql -uroot -prootpass123";
+
+
+NEXT_NAME=fh-web-client;
+# npx create-next-app@latest $NEXT_NAME
+cd $NEXT_NAME;
+npm i;
+npm run dev;
+# echo 123;
+
