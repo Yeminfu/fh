@@ -13,6 +13,7 @@ nvm install --lts;
 sudo ufw allow 3000/tcp;
 
 git clone https://github.com/Yeminfu/fh.git;
+
 cd fh;
 chmod u+x ./init.sh;
 ./init.sh
