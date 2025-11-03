@@ -1,3 +1,7 @@
+# скрипт вызывает ошибку
+# Error response from daemon: No such container: mysql-db
+
+
 #!/bin/bash
 
 # set -e
@@ -37,7 +41,7 @@ MYSQL_DATABASE=nextdb
 MYSQL_PORT=3306
 
 # === Настройки Next.js ===
-# NEXT_PORT=3000
+NEXT_PORT=3000
 
 # === Имена контейнеров и сети ===
 NETWORK_NAME=nextjs-mysql-net
@@ -71,20 +75,21 @@ done
 echo "✅ MySQL готов."
 
 # Собираем Docker-образ для Next.js
-echo "📦 Сборка Next.js приложения..."
-docker build -t nextjs-app .
+# echo "📦 Сборка Next.js приложения..."
+# docker build -t nextjs-app .
 
 # Запускаем Next.js-контейнер
-echo "🚀 Запуск Next.js приложения..."
-docker run -d \
-  --name $NEXTJS_CONTAINER_NAME \
-  --network $NETWORK_NAME \
-  -p $NEXT_PORT:3000 \
-  -e DB_HOST=$MYSQL_CONTAINER_NAME \
-  -e DB_USER=$MYSQL_USER \
-  -e DB_PASS=$MYSQL_PASSWORD \
-  -e DB_NAME=$MYSQL_DATABASE \
-  nextjs-app
+# echo "🚀 Запуск Next.js приложения..."
+# docker run -d \
+#   --name $NEXTJS_CONTAINER_NAME \
+#   --network $NETWORK_NAME \
+#   -p $NEXT_PORT:3000 \
+#   -e DB_HOST=$MYSQL_CONTAINER_NAME \
+#   -e DB_USER=$MYSQL_USER \
+#   -e DB_PASS=$MYSQL_PASSWORD \
+#   -e DB_NAME=$MYSQL_DATABASE \
+#   nextjs-app
 
 echo "✅ Next.js приложение запущено на http://localhost:$NEXT_PORT"
 echo "📝 Подключение к MySQL через: $MYSQL_USER:$MYSQL_PASSWORD@localhost:$MYSQL_PORT/$MYSQL_DATABASE"
+echo "docker exec -it mysql-db mysql -uroot -prootpass123"
