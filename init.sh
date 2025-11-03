@@ -87,5 +87,5 @@ echo "✅ Файл .env.local создан в $NEXT_NAME/"
 cd "$NEXT_NAME"
 npm install
 echo "🚀 Запуск Next.js приложения на http://localhost:$NEXT_PORT"
-npm run dev
+# npm run dev
 

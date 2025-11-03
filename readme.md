@@ -35,3 +35,4 @@ CREATE TABLE IF NOT EXISTS `cash_transactions` (
   PRIMARY KEY (`id`),
   INDEX `idx_created_at` (`created_at`)
 );
+exit;
