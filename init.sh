@@ -6,7 +6,6 @@
 
 
 # === обновление пакетов
-sudo apt upgrade; sudo apt update;
 
 
 # === установка doker
